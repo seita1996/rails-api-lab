@@ -1,0 +1,27 @@
+services:
+  db:
+    restart: always
+    image: mysql:8.0
+    volumes:
+      - mysql-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    ports:
+      - 3306:3306
+
+  app:
+    restart: always
+    build: .
+    tty: true
+    command: pumactl start
+    volumes:
+      - .:/rails
+      - bundle:/usr/local/bundle
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+volumes:
+  mysql-db:
+  bundle:
