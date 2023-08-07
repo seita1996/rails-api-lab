@@ -1,24 +1,16 @@
-# README
+# RAILS API LAB
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+```
+docker compose build
+docker compose up -d
+docker compose exec app rails db:setup
+```
 
-* Ruby version
+## Call Grape API
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- authors
+  - http://localhost:3000/v1/authors
+- posts
+  - http://localhost:3000/v1/posts
